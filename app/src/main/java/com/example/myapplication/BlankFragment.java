@@ -19,7 +19,6 @@ public class BlankFragment extends Fragment {
     static String TAG1 = "tag1_for_blankFragment";
 
     private EditText editText;
-    private IShowText iShowText;
     private int id;
 
     BlankFragment(int i) {
@@ -30,7 +29,6 @@ public class BlankFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        iShowText = (IShowText) context;
     }
 
     @Override
@@ -41,14 +39,15 @@ public class BlankFragment extends Fragment {
         return v;
     }
 
+    void setHint(String s){
+        editText.setHint(s);
+    }
+
     String getText(){
         return editText.getText().toString();
     }
 
     private void initialisation(View v){
         editText = v.findViewById(R.id.fragmentBlank_et);
-    }
-
-    void showText(String s){
     }
 }

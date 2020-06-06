@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements IShowText {
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,35 +44,20 @@ public class MainActivity extends AppCompatActivity implements IShowText {
         String group;
 
         BlankFragment blankFragment = (BlankFragment) getSupportFragmentManager().findFragmentByTag(BlankFragment.TAG);
-        BlankFragment blankFragment1 = (BlankFragment) getSupportFragmentManager().findFragmentByTag(BlankFragment.TAG1);
-
         assert blankFragment != null;
-        name = blankFragment.getText();
+        blankFragment.setHint("введите имя");
+        BlankFragment blankFragment1 = (BlankFragment) getSupportFragmentManager().findFragmentByTag(BlankFragment.TAG1);
         assert blankFragment1 != null;
+        blankFragment1.setHint("введите группу");
+
+        name = blankFragment.getText();
         group = blankFragment1.getText();
 
-        if (!name.equals("") && !group.equals("")) {
+        if (name.equals("") && group.equals("")) {
             Toast.makeText(this, "не все поля заполнены", Toast.LENGTH_SHORT).show();
             return null;
         } else {
             return new Student(name, group);
-        }
-    }
-
-    @Override
-    public void showText(String s, int i) {
-        switch (i) {
-            case 0:
-                BlankFragment blankFragment = (BlankFragment) getSupportFragmentManager().findFragmentByTag(BlankFragment.TAG1);
-                assert blankFragment != null;
-                blankFragment.showText(s);
-                break;
-
-            case 1:
-                BlankFragment blankFragment1 = (BlankFragment) getSupportFragmentManager().findFragmentByTag(BlankFragment.TAG);
-                assert blankFragment1 != null;
-                blankFragment1.showText(s);
-                break;
         }
     }
 }

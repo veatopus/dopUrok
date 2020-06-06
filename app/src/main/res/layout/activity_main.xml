@@ -7,6 +7,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+
     <FrameLayout
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/container"
@@ -14,17 +16,19 @@
         android:layout_height="wrap_content" />
 
     <FrameLayout
-        app:layout_constraintTop_toTopOf="@id/container"
+        app:layout_constraintTop_toBottomOf="@id/container"
         android:id="@+id/container1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        app:layout_constraintTop_toTopOf="@id/container1"
+        android:layout_marginTop="100dp"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
 
     <Button
         android:id="@+id/activityMain_btn_addStudent"
@@ -34,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_dark"
-        android:text="+"
+        android:text="@string/textForButtonAddStudent"
         android:textSize="32sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

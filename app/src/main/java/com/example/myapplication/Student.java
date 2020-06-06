@@ -1,19 +1,19 @@
 package com.example.myapplication;
 
-public class Student {
+class Student {
     private String name;
     private String group;
 
-    public Student(String name, String group) {
+    Student(String name, String group) {
         this.name = name;
         this.group = group;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public String getGroup() {
+    String getGroup() {
         return group;
     }
 }
